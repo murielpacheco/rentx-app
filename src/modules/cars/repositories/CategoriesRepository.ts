@@ -3,7 +3,7 @@ import { ICategoriesRepositoy, ICreateCategoryDTO } from "./ICategoriesRepositor
 
 
 
-export class CategoriesRepositories implements ICategoriesRepositoy {
+class CategoriesRepository implements ICategoriesRepositoy {
 	private categories: Category[];
 
 	constructor() {
@@ -33,3 +33,5 @@ export class CategoriesRepositories implements ICategoriesRepositoy {
 	}
 
 }
+
+export { CategoriesRepository };
