@@ -1,5 +1,5 @@
-import { Category } from "../models/Category";
-import { ICategoriesRepositoy, ICreateCategoryDTO } from "./ICategoriesRepository";
+import { Category } from "../../models/Category";
+import { ICategoriesRepositoy, ICreateCategoryDTO } from "../ICategoriesRepository";
 
 
 
