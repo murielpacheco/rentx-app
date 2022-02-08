@@ -1,10 +1,13 @@
 import { v4 as uuidv4 } from "uuid";
 
-class Category {
-	
+class Specification {
+
 	id?: string;
+
 	name: string;
+
 	description: string;
+	
 	created_at: Date;
 
 	constructor() {
@@ -14,4 +17,4 @@ class Category {
 	}
 }
 
-export { Category };
+export { Specification };
