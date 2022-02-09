@@ -4,7 +4,7 @@
   "main": "src/server.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --respawn --ignore-watch --poll node_modules src/server.ts",
+    "dev": "ts-node-dev --inspect --transpile-only --respawn --ignore-watch node_modules --poll src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
