@@ -1,13 +1,17 @@
-import { ICategoriesRepositoy } from "../../../repositories/ICategoriesRepository";
+import { inject, injectable } from "tsyringe";
 
+import { ICategoriesRepository } from "../../../repositories/ICategoriesRepository";
 interface ICategoryRequest {
   name: string;
   description: string;
   
 }
 
+@injectable()
 class CreateCategoryUseCase {
-	constructor(private categoriesRepository: ICategoriesRepositoy) {}
+	constructor(
+		@inject("CategoriesRepository")
+		private categoriesRepository: ICategoriesRepository) {}
 	
 	async execute({ name, description }: ICategoryRequest): Promise<void> {
 
