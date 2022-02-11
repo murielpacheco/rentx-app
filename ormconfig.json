@@ -6,9 +6,8 @@
   "password": "ignite",
   "database": "rentx",
   "migrations": ["./src/database/migrations/*.ts"],
-  "entities": ["./src/modules/cars/entities/*.ts"],
+  "entities": ["./src/modules/**/entities/*.ts"],
   "cli": {
-    "migrationsDir": "./src/database/migrations",
-    "entitiesDir": "src/modules/cars/entities"
+    "migrationsDir": "./src/database/migrations"
   }
 }
