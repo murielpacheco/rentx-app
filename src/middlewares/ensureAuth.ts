@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
+import { AppError } from "../errors/AppErros";
 import { UsersRepository } from "../modules/accounts/repositories/implementations/UsersRepository";
 
 interface IPayload {
@@ -10,13 +11,13 @@ export async function ensureAuth(request: Request, response: Response, next: Nex
 	const token = request.headers.authorization;
    
 	if (!token) { 
-		throw new Error("No token provided");
+		throw new AppError("No token provided", 401);
 	}
    
 	const [scheme, tokenValue] = token.split(" ");
 
 	if (scheme !== "Bearer") {
-		throw new Error("Invalid token");
+		throw new AppError("Invalid token");
 	}
    
 	try {
@@ -27,11 +28,11 @@ export async function ensureAuth(request: Request, response: Response, next: Nex
 		const user = await usersRepository.findById(user_id);
       
 		if (!user) {
-			throw new Error("Invalid user");
+			throw new AppError("Invalid user", 401);
 		}
 		next();
 	} catch (error) {
-		throw new Error("Invalid token");
+		throw new AppError("Invalid token!", 401 );
 	}
 
 }

@@ -1,4 +1,5 @@
 import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { AppError } from "../../../../errors/AppErros";
 
 import { inject, injectable } from "tsyringe";
 import { sign } from "jsonwebtoken";
@@ -27,13 +28,13 @@ class AuthenticateUserUseCase {
 		const user = await this.usersRepository.findByEmail(email);
       
 		if (!user) {
-			throw new Error ("Email or password invalid!");
+			throw new AppError ("Email or password invalid!");
 		}
 
 		const passwordMatch = await compare(password, user.password);
 
 		if (!passwordMatch) {
-			throw new Error ("Email or password invalid!");
+			throw new AppError ("Email or password invalid!");
 		}
 
 		const token = sign({ userId: user.id }, process.env.JWT_SECRETKEY, {
