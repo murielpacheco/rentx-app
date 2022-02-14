@@ -1,5 +1,5 @@
-import { ICreateUserDTO } from "../../../dtos/ICreateUserDTO";
-import { IUsersRepository } from "../../../repositories/IUsersRepository";
+import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 import { inject, injectable } from "tsyringe";
 import { hash } from "bcryptjs";
@@ -9,7 +9,7 @@ import { hash } from "bcryptjs";
 class CreateUserUseCase {
 	constructor(
       @inject("UsersRepository")
-      private usersRepository: IUsersRepository) { } 
+      private usersRepository: IUsersRepository) {} 
    
 	async execute({ name, email, password, driver_license }: ICreateUserDTO): Promise<void> {
 
