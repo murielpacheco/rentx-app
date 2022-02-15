@@ -24,6 +24,11 @@ services:
       - database_ignite
     depends_on:
       - database_ignite
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
 volumes:
   pgdata:
