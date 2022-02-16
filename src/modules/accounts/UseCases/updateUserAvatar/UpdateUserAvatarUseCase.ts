@@ -21,11 +21,11 @@ class UpdateUserAvatarUseCase {
 
 		if (user.avatar) {
 			await deleteFile(`./tmp/avatar/${user.avatar}`);
-		}
+		} // verificação caso o usuário tenha um avatar antigo, e deleta o mesmo
 
-		user.avatar = avatar_file;
+		user.avatar = avatar_file; // atualiza o avatar do usuário
 
-		await this.usersRepository.create(user);
+		await this.usersRepository.create(user); // salva o usuário no banco de dados passando o avatar atualizado
 	}
 }
 
