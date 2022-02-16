@@ -6,7 +6,7 @@ import { SpecificationsRepository } from "../../modules/cars/repositories/typeor
 import { ISpecificationsRepository } from "../../modules/cars/repositories/ISpecificationsRepository";
 
 import { IUsersRepository } from "../../modules/accounts/repositories/IUsersRepository";
-import { UsersRepository } from "../../modules/accounts/repositories/implementations/UsersRepository";
+import { UsersRepository } from "../../modules/accounts/repositories/typeorm/UsersRepository";
 
 container.registerSingleton<ICategoriesRepository>(
 	"CategoriesRepository",
