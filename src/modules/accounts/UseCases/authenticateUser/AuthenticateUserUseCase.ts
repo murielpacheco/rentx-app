@@ -1,5 +1,5 @@
-import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { AppError } from "../../../../errors/AppErros";
+import { AppError } from "@errors/AppError";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 
 import { inject, injectable } from "tsyringe";
 import { sign } from "jsonwebtoken";
