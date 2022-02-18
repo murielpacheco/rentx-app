@@ -4,8 +4,8 @@
   "main": "src/server.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --respawn --ignore-watch node_modules --poll src/server.ts",
-    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --respawn --ignore-watch node_modules --poll src/shared/infra/http/server.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/regi ster ./node_modules/typeorm/cli.js",
     "test": "jest --watch"
   },
   "dependencies": {
