@@ -5,18 +5,14 @@ import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/Us
 
 
 export async function ensureAdmin(request: Request, response: Response, next: NextFunction) {
-	const { id } = request.user;
-   
+	const { email } = request.body;
+
 	const usersRepository = new UsersRepository();
-	const user = await usersRepository.findById(id);
-   
-	if (!user) {
-		throw new AppError("Invalid user", 401);
+	const user = await usersRepository.findById(email);
+
+	if (user.isAdmin === false || user.isAdmin === null) {
+		throw new AppError("User isn't admin!");
 	}
-   
-	if (!user.isAdmin) {
-		throw new AppError("User isn't an admin", 401);
-	}
-   
+
 	return next();
 }
