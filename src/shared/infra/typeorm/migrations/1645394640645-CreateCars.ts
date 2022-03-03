@@ -44,7 +44,6 @@ export class CreateCars1645394640645 implements MigrationInterface {
 					{
 						name: "category_id",
 						type: "uuid",
-						isNullable: true
 					},
 					{
 						name: "created_at",
