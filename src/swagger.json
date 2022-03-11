@@ -14,6 +14,11 @@
         "tags": ["Category Routes"],
         "summary": "Create a car category.",
         "description": "Creating a new car category.",
+        "security":[
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -108,6 +113,11 @@
         "tags": ["Specification Routes"],
         "summary": "Create a car specification.",
         "description": "Creating a new car specification.",
+        "security":[
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -137,6 +147,45 @@
             "description": "Specification already exists."
           }
         }
+      }
+    }
+  },
+  "sessions": {
+    "post": {
+      "tags": ["Session"],
+      "summary": "Authenticate user",
+      "description": "Authenticate user",
+      "requestBody": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Sucess"
+        },
+        "400": {
+          "description": "Email or password incorrect!"
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
