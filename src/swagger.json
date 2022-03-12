@@ -108,7 +108,7 @@
         }
       }
     },
-    "specifications": {
+    "/specifications": {
       "post": {
         "tags": ["Specification Routes"],
         "summary": "Create a car specification.",
@@ -148,34 +148,102 @@
           }
         }
       }
-    }
-  },
-  "sessions": {
-    "post": {
-      "tags": ["Session"],
-      "summary": "Authenticate user",
-      "description": "Authenticate user",
-      "requestBody": {
-        "application/json": {
-          "schema": {
-            "type": "object",
-            "properties": {
-              "email": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
+    },
+    "/sessions": {
+      "post": {
+        "tags": ["Session"],
+        "summary": "Authenticate user",
+        "description": "Authenticate user",
+        "requestBody": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
               }
             }
           }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "Sucess"
         },
-        "400": {
-          "description": "Email or password incorrect!"
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          },
+          "400": {
+            "description": "Email or password incorrect!"
+          }
+        }
+      }
+    },
+    "/cars": {
+      "post": {
+        "tags": ["Cars Routes"],
+        "summary": "Create a new car.",
+        "description": "Creating a new car.",
+        "security":[
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Car"
+              }
+            }
+          }
+        },
+        "responses":{
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Car already exists."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Car": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "dayli_rate": {
+          "type": "number"
+        },
+        "license_plate": {
+          "type": "string"
+        },
+        "fine_amount": {
+          "type": "number"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "category_id":{
+          "Car category description": "string"
         }
       }
     }
