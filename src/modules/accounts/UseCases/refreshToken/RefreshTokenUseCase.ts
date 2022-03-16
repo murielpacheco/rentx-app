@@ -32,8 +32,7 @@ class RefreshTokenUseCase {
 
 		await this.usersTokenRepository.deleteById(usersToken.id);
 
-		const expires_date = this.dateProvider.addDays(expires_refresh_token_in_days);
-
+		const expires_at = this.dateProvider.addDays(expires_refresh_token_in_days);
 
 		const refresh_token = sign({ email }, secret_refresh_token, {
 			subject: sub,
@@ -43,7 +42,7 @@ class RefreshTokenUseCase {
 		await this.usersTokenRepository.create({
 			refresh_token,
 			user_id,
-			expires_at: expires_date
+			expires_at
 		});
 
 		return refresh_token;
