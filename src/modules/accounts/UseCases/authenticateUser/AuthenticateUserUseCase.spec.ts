@@ -10,18 +10,18 @@ let authenticateUserUseCase: AuthenticateUserUseCase;
 let inMemoryUsersRepository: InMemoryUsersRepository;
 let createUserUseCase: CreateUserUseCase;
 let usersTokenRepository: InMemoryUsersTokenRepository;
-let dayJsDateProvider: DayjsDateProvider;
+let dateProvider: DayjsDateProvider;
 
 describe("Authenticate User", () => {
 
 	beforeEach(() => { 
 		inMemoryUsersRepository = new InMemoryUsersRepository();
 		usersTokenRepository = new InMemoryUsersTokenRepository();
-		dayJsDateProvider = new DayjsDateProvider();
+		dateProvider = new DayjsDateProvider();
 		authenticateUserUseCase = new AuthenticateUserUseCase(
 			inMemoryUsersRepository,
 			usersTokenRepository,
-			dayJsDateProvider
+			dateProvider
 		);
 		createUserUseCase = new CreateUserUseCase(inMemoryUsersRepository);
 	});
