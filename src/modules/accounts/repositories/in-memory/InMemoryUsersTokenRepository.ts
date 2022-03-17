@@ -20,14 +20,14 @@ class InMemoryUsersTokenRepository implements IUsersTokenRepository {
 		return userToken;
 	}
 	async findByUserIdAndRF(user_id: string, refresh_token: string): Promise<UsersToken> {
-		return this.usersToken.find(userToken => userToken.user_id === user_id && userToken.refresh_token === refresh_token);
+		return this.usersToken.find(ut => ut.user_id === user_id && ut.refresh_token === refresh_token);
 
 	}
 	async deleteById(id: string): Promise<void> {
-		this.usersToken.filter(userToken => userToken.id !== id);
+		this.usersToken.filter(ut => ut.id !== id);
 	}
 	async findByRefreshToken(token: string): Promise<UsersToken> {
-		return this.usersToken.find(userToken => userToken.refresh_token === token);
+		return this.usersToken.find(ut => ut.refresh_token === token);
 	}
    
 }
