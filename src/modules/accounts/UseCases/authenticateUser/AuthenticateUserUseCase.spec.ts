@@ -1,7 +1,7 @@
 import { AppError } from "@shared/errors/AppError";
 import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
 import { InMemoryUsersRepository } from "@modules/accounts/repositories/in-memory/InMemoryUsersRepository";
-import { CreateUserUseCase } from "@modules/accounts/UseCases/createUser/CreateUserUseCase";
+import { CreateUserUseCase } from "@modules/accounts/useCases/createUser/CreateUserUseCase";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
 import { InMemoryUsersTokenRepository } from "@modules/accounts/repositories/in-memory/InMemoryUsersTokenRepository";
 import { DayjsDateProvider } from "@shared/container/providers/DateProvider/implementations/DayjsDateProvider";
@@ -50,7 +50,7 @@ describe("Authenticate User", () => {
 				email: "test@email.com",
 				password: "abcd"
 			});
-		}).rejects.toBeInstanceOf(AppError);
+		}).rejects.toEqual(new AppError("Email or password invalid!"));
 	});
 
 	it("should not be able to authenticate with an incorrect password", async () => { 
@@ -69,6 +69,6 @@ describe("Authenticate User", () => {
 				password: "incorrectPassword"
 			}
 			);
-		}).rejects.toBeInstanceOf(AppError);
+		}).rejects.toEqual(new AppError("Email or password invalid!"));
 	});
 });
