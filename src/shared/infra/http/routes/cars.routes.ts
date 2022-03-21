@@ -11,12 +11,12 @@ import { UploardCarImagesController } from "@modules/cars/useCases/UploadCarImag
 
 const carsRoutes = Router();
 
+const uploadCarImage = multer(uploadConfig);
+
 const createCarController = new CreateCarController();
 const listAvailableCarsController = new ListAvailableCarController();
 const createCarSpecificationController = new CreateCarSpecificationController();
 const uploadCarImagesController = new UploardCarImagesController();
-
-const uploadCarImage = multer(uploadConfig);
 
 carsRoutes.post("/cars", ensureAuth, createCarController.handle);
 
