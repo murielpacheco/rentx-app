@@ -7,6 +7,7 @@ interface ICreateUserDTO {
    isAdmin?: boolean,
    id?: string;
    avatar?: string;
+   avatar_url?: string;
 }
 
 export { ICreateUserDTO };
