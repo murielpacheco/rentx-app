@@ -5,12 +5,13 @@ import { ICreateSpecificationDTO, ISpecificationsRepository } from "@modules/car
 class InMemorySpecificationsRepository implements ISpecificationsRepository {
 	 specifications: Specification[] = [];
 
-	async create({ name, description }: ICreateSpecificationDTO): Promise<Specification> {
+	async create({ name, description, id }: ICreateSpecificationDTO): Promise<Specification> {
 		const specification = new Specification();
       
 		Object.assign(specification, {
 			description,
-			name
+			name,
+			id
 		});
 		this.specifications.push(specification);
 
