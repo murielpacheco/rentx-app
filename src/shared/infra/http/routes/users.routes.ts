@@ -3,11 +3,11 @@ import multer from "multer";
 
 import uploadConfig from "@config/upload";
 
-import { CreateUserController } from "@modules/accounts/useCases/createUser/CreateUserController";
-import { UpdateUserAvatarController } from "@modules/accounts/useCases/updateUserAvatar/UpdateUserAvatarController";
 import { ensureAuth } from "@shared/infra/http/middlewares/ensureAuth";
-import { ProfileUserController } from "@modules/accounts/useCases/profileUser/ProfileUserController";
-import { ShowAllUsersController } from "@modules/accounts/useCases/showAllUsers/ShowAllUsersController";
+import { CreateUserController } from "@modules/accounts/UseCases/createUser/CreateUserController";
+import { UpdateUserAvatarController } from "@modules/accounts/UseCases/updateUserAvatar/UpdateUserAvatarController";
+import { ProfileUserController } from "@modules/accounts/UseCases/profileUser/ProfileUserController";
+import { ShowAllUsersController } from "@modules/accounts/UseCases/showAllUsers/ShowAllUsersController";
 
 const usersRoutes = Router();
 
