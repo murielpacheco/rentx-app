@@ -5,6 +5,7 @@ import { IUsersRepository } from "../IUsersRepository";
 
 
 class InMemoryUsersRepository implements IUsersRepository {
+
 	users: User[] = [];
 	async create({ name,email,password,driver_license }: ICreateUserDTO): Promise<void> {
 		const user = new User();
@@ -26,6 +27,11 @@ class InMemoryUsersRepository implements IUsersRepository {
 	async findById(id: string): Promise<User> {
 		const user = this.users.find(user => user.id === id);
 		return user;
+	}
+
+	async findAllUsers(): Promise<User[]> {
+		const allUsers = this.users.map(user => user);
+		return allUsers;
 	}
 
 }

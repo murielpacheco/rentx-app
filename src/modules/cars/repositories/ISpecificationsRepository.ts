@@ -3,6 +3,7 @@ import { Specification } from "../infra/typeorm/entities/Specification";
 interface ICreateSpecificationDTO {
   name: string;
   description: string;
+  id?: string;
 }
 
 interface ISpecificationsRepository {
